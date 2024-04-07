@@ -1,0 +1,84 @@
+---
+import ReduxIcon from "../icons/tech/ReduxIcon.astro";
+import React from "../icons/tech/React.astro";
+import Tailwind from "../icons/tech/Tailwind.astro";
+
+// icons
+import Expand from "../icons/Expand.astro";
+import GitHub from "../icons/GitHub.astro";
+
+import NotColoredButton from "../components/Buttons/NotColoredButton.astro";
+import ColoredButton from "./Buttons/ColoredButton.astro";
+
+const PROJECTS = [
+  {
+    title: "Modara E-Commerce",
+    description:
+      "Fancy e-commerce platform seamlessly blending Redux for state management, React for dynamic UI, and Tailwind CSS for modern styling.",
+    image: "./Projects/ecommerce.jpg",
+    tags: ["Redux", "React", "Tailwind", "ASP.NET", "Azure"],
+    repositore: "https://github.com/Keikooh/ShoppingCart",
+    preview: "",
+  },
+  {
+    title: "InSight ChatBot",
+    description:
+      "Smart ChatBot built with Python, Flask and Boostrap. It uses OpenAI's API for real-time responses. Responsive web interface for an optimal user experience.",
+    image: "./Projects/bot.jpg",
+    tags: ["Python", "Flask", "Boostrap"],
+    repositore:"https://github.com/Keikooh/InSight-ChatBot",
+    preview:""
+  },
+  {
+    title: "TaskFlow Management",
+    description:
+      "Effortlessly manage tasks, members, and tags. Edit, delete, and move cards between states with ease. Built with jQuery, HTML, and CSS.",
+    image: "./Projects/management.jpg",
+    tags: ["JQuery", "HTML5", "CSS3"],
+    repositore: "https://github.com/Keikooh/TaskFlow",
+    preview: "",
+  },
+
+];
+---
+
+<div class="flex justify-between flex-wrap">
+  {
+    PROJECTS.map(({ title, description, image, tags, repositore }) => (
+      <div class="flex flex-col border-2 border-white/5 bg-white/5 rounded-xl lg:w-[48%] mb-7">
+        <img
+          src={image}
+          alt=""
+          class="rounded-t-xl"
+        />
+
+        <section class="flex flex-wrap p-5 h-full content-between">
+          <div class="flex flex-col justify-between items-center gap-y-4">
+            <h3 class="text-xl font-semibold">{title}</h3>
+            <div class="flex flex-wrap justify-center items-center gap-2">
+              {tags.map((tag) => (
+                <span class=" text-xs text-white/60 rounded-2xl py-1 px-2 bg-white/10">
+                  {tag}
+                </span>
+              ))}
+            </div>
+            <p class="text-sm text-white/60 text-center">{description}</p>
+          </div>
+          <div class=" flex flex-row justify-between w-full mt-7">
+            <ColoredButton
+              class="w-[45%]"
+              link={repositore}
+            >
+              <span class="text-md">Code</span>
+              <GitHub class="size-4" />
+            </ColoredButton>
+            <NotColoredButton class="w-[45%]">
+              <span class="text-md">Preview</span>
+              <Expand class="size-4" />
+            </NotColoredButton>
+          </div>
+        </section>
+      </div>
+    ))
+  }
+</div>

@@ -1,0 +1,49 @@
+---
+// Import icons
+import Location from "../icons/Location.astro";
+import Certificate from "../icons/Certificate.astro";
+import Arrow from "../icons/Arrow.astro";
+import Calendar from "../icons/Calendar.astro";
+
+const EDUCATION = [
+  {
+    type: "Bachelor's degree in",
+    area: "Computer Systems Engineering",
+    time: "2020 - Current",
+    school: "Tecnológico Superior de Jalisco",
+    description:
+      "Object oriented, structured and functional programming, software design pattern.",
+    icon: Location,
+  },
+  {
+    type: "Online Courses:",
+    area: "JavaScript, React, Node and TypeScript",
+    time: "Current",
+    school: "Udemy, YouTube",
+    description: "",
+    icon: Certificate,
+  },
+];
+---
+
+<div class="flex flex-col gap-y-10">
+  {
+    EDUCATION.map((education) => (
+      <section class="flex flex-col gap-y-3 ">
+        <h1 class="font-semibold text-xl">
+          <span>{education.type}</span>
+          <span class="text-lavanda">
+            {education.area} {education.school}
+          </span>
+        </h1>
+        <div class="flex items-center gap-x-2 text-white/30 font-medium">
+          <Calendar class="size-4" />
+          {education.time}
+        </div>
+        <span class="text-white/60 flex flex-row items-center">
+          {education.description}
+        </span>
+      </section>
+    ))
+  }
+</div>

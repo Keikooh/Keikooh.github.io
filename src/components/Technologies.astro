@@ -1,0 +1,115 @@
+---
+// Icons
+import React from "../icons/tech/React.astro";
+import Tailwind from "../icons/tech/Tailwind.astro";
+import ReduxIcon from "../icons/tech/ReduxIcon.astro";
+import HTML from "../icons/tech/HTML.astro";
+import JavaScript from "../icons/tech/JavaScript.astro";
+import Laravel from "../icons/tech/Laravel.astro";
+import Figma from "../icons/tech/Figma.astro";
+import Sass from "../icons/tech/Sass.astro";
+import CSS from "../icons/tech/CSS.astro";
+import NETCore from "../icons/tech/NetCore.astro";
+import Boostrap from "../icons/tech/Boostrap.astro";
+import Git from "../icons/tech/Git.astro";
+import CSharp from "../icons/tech/CSharp.astro";
+import Python from "../icons/tech/Python.astro";
+import Azure from "../icons/tech/Azure.astro";
+import Flask from "../icons/tech/Flask.astro";
+import MongoDB from "../icons/tech/MongoDB.astro";
+import MySQL from "../icons/tech/MySQL.astro";
+import SQL from "../icons/tech/SQL.astro";
+
+const TECH = [
+  {
+    name: "React",
+    icon: React,
+  },
+  {
+    name: "Tailwind",
+    icon: Tailwind,
+  },
+  {
+    name: "Redux",
+    icon: ReduxIcon,
+  },
+  {
+    name: "CSS3",
+    icon: CSS,
+  },
+  {
+    name: "JavaScript",
+    icon: JavaScript,
+  },
+  {
+    name: ".NET Core",
+    icon: NETCore,
+  },
+  {
+    name: "Boostrap",
+    icon: Boostrap,
+  },
+
+  {
+    name: "HTML5",
+    icon: HTML,
+  },
+
+  {
+    name: "Figma",
+    icon: Figma,
+  },
+  {
+    name: "Git",
+    icon: Git,
+  },
+  {
+    name: "C#",
+    icon: CSharp,
+  },
+  {
+    name: "Python",
+    icon: Python,
+  },
+  {
+    name: "Azure",
+    icon: Azure,
+  },
+  {
+    name: "MySQL",
+    icon: MySQL,
+  },
+  {
+    name: "Microsoft SQL Server",
+    icon: SQL,
+  },
+  {
+    name: "MongoDB",
+    icon: MongoDB,
+  },
+  {
+    name: "Flask",
+    icon: Flask,
+  },
+  {
+    name: "Laravel",
+    icon: Laravel,
+  },
+];
+---
+
+<div class="border-2 border-white/10 flex p-3">
+  <div class="flex flex-wrap justify-center gap-3 rounded">
+    {
+      TECH.map((tech) => (
+        <div class="flex relative group  bg-white/10 py-3 lg:w-[15%]  w-[30%] items-center rounded justify-center hover:bg-white/15 transition">
+          <div class="absolute rounded-full w-16 h-16 opacity-0 bg-lavanda blur-lg group-hover:opacity-20 transition"/>
+          <div class="relative flex flex-col items-center  ">
+            <tech.icon class="lg:size-8 size-10 mb-5" />
+            <p class="text-xs text-center">{tech.name}</p>
+          </div>
+        </div>
+      ))
+    }
+  </div>
+</div>

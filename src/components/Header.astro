@@ -1,0 +1,71 @@
+---
+import Menu from "../icons/Menu.astro";
+import { toggleMenu } from "../navigation.js";
+---
+
+<header
+  class="fixed z-10 top-0 left-0 right-0 backdrop-blur border-white/10 border-b-2"
+>
+  <nav class="flex justify-between items-center py-3 w-[92%] mx-auto">
+    <div>
+     
+      <a href="" class="font-bold text-xl">Port<span class="text-lavanda">folio</span></a>
+    </div>
+    <div
+      class="nav-links duration-500 md:static absolute md:bg-transparent backdrop-blur backdrop-blur-10 md:shadow-none shadow-xl bg-lavanda md:min-h-fit min-h-[50vh] left-[-100%] top-14 md:w-auto w-full flex items-center px-5"
+    >
+      <ul
+        class="flex md:flex-row flex-col md:items-center md:gap-[2vw] gap-6 font-medium "
+      >
+        <li>
+          <a class="hover:opacity-50 transition px-3 py-1" href="#top">Home</a>
+        </li>
+        <li>
+          <a class="hover:opacity-50 transition px-3 py-1" href="#tech">Tech</a>
+        </li>
+        <li>
+          <a class="hover:opacity-50 transition px-3 py-1" href="#education"
+            >Education</a
+          >
+        </li>
+
+        <li>
+          <a class="hover:opacity-50 transition px-3 py-1" href="#projects"
+            >Projects</a
+          >
+        </li>
+      </ul>
+    </div>
+
+    <div class="flex items-center gap-2">
+      <a
+        class="hover:opacity-80 transition px-3 py-1 bg-lavanda rounded-3xl"
+        href="#contact">Contact</a
+      >
+      <span id="menuIcon" class="size-6 cursor-pointer md:hidden">☰</span>
+    </div>
+  </nav>
+</header> 
+
+
+
+<script>
+  document.addEventListener("DOMContentLoaded", () => {
+    const menuIcon = document.getElementById("menuIcon");
+    const navLinks = document.querySelector(".nav-links");
+
+    if (menuIcon) {
+      menuIcon.addEventListener("click", () => {
+        onToggleMenu();
+      });
+    }
+
+    function onToggleMenu() {
+      navLinks?.classList.toggle("left-0");
+      navLinks?.classList.toggle("left-[-100%]");
+      if (menuIcon) {
+        menuIcon.innerHTML = menuIcon.innerHTML === "☰" ? "✕" : "☰";
+      }
+    }
+  });
+</script>
