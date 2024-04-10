@@ -27,7 +27,7 @@ const PROJECTS = [
     image: "./Projects/bot.jpg",
     tags: ["Python", "Flask", "Boostrap"],
     repositore:"https://github.com/Keikooh/InSight-ChatBot",
-    preview:""
+    preview:"https://fergzm.pythonanywhere.com/"
   },
   {
     title: "TaskFlow Management",
@@ -44,7 +44,7 @@ const PROJECTS = [
 
 <div class="flex justify-between flex-wrap">
   {
-    PROJECTS.map(({ title, description, image, tags, repositore }) => (
+    PROJECTS.map(({ title, description, image, tags, repositore, preview}) => (
       <div class="flex flex-col border-2 border-white/5 bg-white/5 rounded-xl lg:w-[48%] mb-7">
         <img
           src={image}
@@ -72,7 +72,10 @@ const PROJECTS = [
               <span class="text-md">Code</span>
               <GitHub class="size-4" />
             </ColoredButton>
-            <NotColoredButton class="w-[45%]">
+            <NotColoredButton 
+              class="w-[45%]"
+              preview={preview}
+            >
               <span class="text-md">Preview</span>
               <Expand class="size-4" />
             </NotColoredButton>
