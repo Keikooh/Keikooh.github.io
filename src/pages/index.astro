@@ -4,6 +4,7 @@ import Section from "../components/Section.astro";
 import Technologies from "../components/Technologies.astro";
 import Projects from "../components/Projects.astro";
 import Education from "../components/Education.astro";
+import Experience from "../components/Experience.astro";
 import Title from "../components/Title.astro";
 import ColoredButton from "../components/Buttons/ColoredButton.astro";
 import Pills from "../components/Pills.astro";
@@ -18,9 +19,13 @@ import Book from "../icons/Book.astro";
 import Gmail from "../icons/Gmail.astro";
 import Send from "../icons/Send.astro";
 import Stack from "../icons/Stack.astro";
----
+import Briefcase from "../icons/Briefcase.astro";
+import { getLangFromUrl, useTranslations } from '../i18n/utils'
 
-<Layout title="Fer Gonzalez | Welcome to my portfolio">
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
+---
+<Layout title={t('title')}>
   <main class="px-5">
     <!-- Presentation -->
     <Section class="items-center gap-x-10 text-center">
@@ -42,14 +47,11 @@ import Stack from "../icons/Stack.astro";
           </Pills>
         </ul>
         <h1
-          class="lg:text-7xl text-5xl font-medium flex flex-col mb-8 bg-gradient-to-b from-white to-lavanda-light text-transparent bg-clip-text"
-        >
-          <span>Hi! I'm Fernanda</span>
-          <span class="">Web developer</span>
-        </h1>
+          set:html={t('home.title')}
+          class="lg:text-6xl text-5xl font-medium flex flex-col mb-8 bg-gradient-to-b from-white to-lavanda-light text-transparent bg-clip-text"
+        />
         <p class="text-white/40 font-regular mb-8 lg:text-xl text-md">
-          Engineering student and tech enthusiast from Mexico. I enjoy building
-          web applications from scratch 🚀 and learning new things.
+          {t('home.description')}
         </p>
 
         <ColoredButton link="./MyCV.pdf">
@@ -60,27 +62,36 @@ import Stack from "../icons/Stack.astro";
     </Section>
 
     <!-- Tech Stack -->
-    <Section id="tech" class="pt-20">
+    <Section id="tech" class="pt-36">
       <Title>
-        <span class="text-3xl">Tech stack</span>
+        <span class="text-3xl">{t('section.tech')}</span>
         <Stack class="size-7 ms-3" />
       </Title>
       <Technologies />
     </Section>
 
     <!-- Education -->
-    <Section id="education" class="pt-20">
+    <Section id="education" class="pt-36">
       <Title>
-        <span class="text-3xl">Education</span>
+        <span class="text-3xl">{t('section.education')}</span>
         <Book class="size-7 ms-3" />
       </Title>
       <Education />
     </Section>
 
-    <!-- Projects -->
-    <Section id="projects" class="pt-20">
+    <!-- Experience -->
+    <Section id="experience" class="pt-36">
       <Title>
-        <span class="text-3xl">Projects</span>
+        <span class="text-3xl">{t('section.experience')}</span>
+        <Briefcase class="size-7 ms-3" />
+      </Title>
+      <Experience />
+    </Section>
+
+    <!-- Projects -->
+    <Section id="projects" class="pt-36">
+      <Title>
+        <span class="text-3xl">{t('section.projects')}</span>
         <Code class="size-7 ms-3" />
       </Title>
       <Projects />

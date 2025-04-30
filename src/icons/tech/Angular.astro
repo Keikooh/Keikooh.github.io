@@ -1,0 +1,16 @@
+<svg 
+  {...Astro.props}
+  viewBox="0 0 2500 2500" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <mask id="recorteA">
+      <!-- Fondo visible -->
+      <path fill="white" d="M1250 0l1146 418-185 1397-961 585-961-585L104 418z"/>
+      <!-- A recortada -->
+      <path fill="black" fill-rule="evenodd" d="
+        M1250 297l-611 1569h247l125-332h477l125 332h247L1250 297zm0 508l181 481h-362l181-481z"/>
+    </mask>
+  </defs>
+
+  <!-- Escudo con recorte de la A -->
+  <path fill="white" d="M1250 0l1146 418-185 1397-961 585-961-585L104 418z" mask="url(#recorteA)"/>
+</svg>

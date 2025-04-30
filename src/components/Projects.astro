@@ -9,12 +9,15 @@ import GitHub from "../icons/GitHub.astro";
 
 import NotColoredButton from "../components/Buttons/NotColoredButton.astro";
 import ColoredButton from "./Buttons/ColoredButton.astro";
+import { getLangFromUrl, useTranslations } from '../i18n/utils'
+
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
 
 const PROJECTS = [
   {
     title: "Modara E-Commerce",
-    description:
-      "Fancy e-commerce platform seamlessly blending Redux for state management, React for dynamic UI, and Tailwind CSS for modern styling.",
+    description: t('projects.description1'),
     image: "./Projects/ecommerce.jpg",
     tags: ["Redux", "React", "Tailwind", "ASP.NET", "Azure"],
     repositore: "https://github.com/Keikooh/ShoppingCart",
@@ -22,8 +25,7 @@ const PROJECTS = [
   },
   {
     title: "InSight ChatBot",
-    description:
-      "Smart ChatBot built with Python, Flask and Boostrap. It uses OpenAI's API for real-time responses. Responsive web interface for an optimal user experience.",
+    description: t('projects.description2'),
     image: "./Projects/bot.jpg",
     tags: ["Python", "Flask", "Boostrap"],
     repositore:"https://github.com/Keikooh/InSight-ChatBot",
@@ -31,14 +33,12 @@ const PROJECTS = [
   },
   {
     title: "TaskFlow Management",
-    description:
-      "Effortlessly manage tasks, members, and tags. Edit, delete, and move cards between states with ease. Built with jQuery, HTML, and CSS.",
+    description: t('projects.description3'),
     image: "./Projects/management.jpg",
     tags: ["JQuery", "HTML5", "CSS3"],
     repositore: "https://github.com/Keikooh/TaskFlow",
     preview: "",
   },
-
 ];
 ---
 

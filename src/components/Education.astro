@@ -4,23 +4,26 @@ import Location from "../icons/Location.astro";
 import Certificate from "../icons/Certificate.astro";
 import Arrow from "../icons/Arrow.astro";
 import Calendar from "../icons/Calendar.astro";
+import { getLangFromUrl, useTranslations } from '../i18n/utils'
+
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
 
 const EDUCATION = [
   {
-    type: "Bachelor's degree in",
-    area: "Computer Systems Engineering",
-    time: "2020 - Current",
+    type: t('education.type1'),
+    area: t('education.area1'),
+    time: "2020 - 2024",
     school: "Tecnológico Superior de Jalisco",
-    description:
-      "Object oriented, structured and functional programming, software design pattern.",
+    description: t('education.description1'),
     icon: Location,
   },
   {
-    type: "Online Courses:",
-    area: "JavaScript, React, Node and TypeScript",
-    time: "Current",
-    school: "Udemy, YouTube",
-    description: "",
+    type: t('education.type2'),
+    area: "",
+    time: "2024",
+    school: "DevTalles",
+    description: t('education.description2'),
     icon: Certificate,
   },
 ];

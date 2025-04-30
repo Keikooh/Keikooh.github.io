@@ -1,0 +1,62 @@
+---
+// Import icons
+import Location from "../icons/Location.astro";
+import Certificate from "../icons/Certificate.astro";
+import Arrow from "../icons/Arrow.astro";
+import Calendar from "../icons/Calendar.astro";
+import Pills from "./Pills.astro"
+import { getLangFromUrl, useTranslations } from '../i18n/utils'
+
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
+
+const EXPERIENCE = [
+  {
+    position: t('experience.position'),
+    company: "HDI Seguros",
+    time: t('experience.time'),
+    location: t('experience.location'),
+    description: t('experience.description'),
+    technologies: [
+        "React",
+        "Sybase",
+        "Git",
+        "C#",
+        ".NET",
+        "Azure DevOps"
+    ]  
+  },
+
+];
+---
+
+<div class="flex flex-col gap-y-10">
+  {
+    EXPERIENCE.map((experience) => (
+      <section class="flex flex-col gap-y-3 ">
+        <h1 class="font-semibold flex flex-col text-xl">
+          <span>{experience.position}</span>
+          <span class="text-lavanda">
+            {experience.company}
+          </span>
+        </h1>
+        <div class="flex items-center gap-x-2 text-white/30 font-medium">
+          <Calendar class="size-4" />
+          {experience.time} , {experience.location}
+        </div>
+        <div class="text-white/60 flex flex-col gap-y-1">
+          {experience.description.map( (item, index) => (
+            <li key={index}>{item}</li>
+          ) )}
+        </div>
+        <ul class="flex flex-wrap gap-2">
+            {
+                experience.technologies.map( item => (
+                    <Pills>{item}</Pills>
+                ))
+            }
+        </ul>
+      </section>
+    ))
+  }
+</div>
