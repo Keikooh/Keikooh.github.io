@@ -14,7 +14,7 @@ const t = useTranslations(lang);
   <nav class="flex justify-between items-center py-3 w-[92%] mx-auto">
     <div class="flex items-center">
       <img src='/logo.png' width="50" height="50"/>
-      <a href="" class="font-bold text-xl">Port<span class="text-lavanda">folio</span></a>
+      <a href="" class="font-bold text-xl" set:html={t('nav.title')}></a>
     </div>
     <div
       class="nav-links duration-500 md:static absolute md:bg-transparent backdrop-blur backdrop-blur-10 md:shadow-none shadow-xl bg-lavanda md:min-h-fit min-h-[50vh] left-[-100%] top-14 md:w-auto w-full flex items-center px-5"
@@ -47,12 +47,21 @@ const t = useTranslations(lang);
     </div>
 
     <div class="flex items-center gap-2">
-    <!-- 
-      <a
-        class="hover:opacity-80 transition px-3 py-1 bg-lavanda rounded-3xl"
-        href="#contact">Contact</a
-      >
-     -->
+
+      <!-- 
+      <div class="flex items-center gap-2">
+
+        <span id="english" class="" >en</span>
+
+        <div id="container" class="rounded-full bg-white h-auto w-14 p-0.5 flex">
+          <div id="toggle" class="rounded-full bg-lavanda h-6 w-6 transition"></div>
+        </div>
+
+        <span id="spanish" class="opacity-50">es</span>
+
+      </div>
+      -->
+      
       <span id="menuIcon" class="size-6 cursor-pointer md:hidden">☰</span>
     </div>
   </nav>
@@ -62,8 +71,16 @@ const t = useTranslations(lang);
 
 <script>
   document.addEventListener("DOMContentLoaded", () => {
+    // Menu
     const menuIcon = document.getElementById("menuIcon");
     const navLinks = document.querySelector(".nav-links");
+
+    // toggle
+    const toggle = document.getElementById("toggle");
+    const container = document.getElementById("container");
+    const english = document.getElementById("english");
+    const spanish = document.getElementById("spanish");
+
 
     if (menuIcon) {
       menuIcon.addEventListener("click", () => {
@@ -71,12 +88,36 @@ const t = useTranslations(lang);
       });
     }
 
-    function onToggleMenu() {
+    if (container) {
+      container.addEventListener("click", () => {
+        toggleButton();
+        switchLanguage();
+      });
+    }
+
+    const toggleButton = () => {
+      container.classList.toggle("flex-row-reverse");
+      english.classList.toggle("opacity-50");
+      spanish.classList.toggle("opacity-50");
+    }
+
+    const onToggleMenu = () => {
       navLinks?.classList.toggle("left-0");
       navLinks?.classList.toggle("left-[-100%]");
       if (menuIcon) {
         menuIcon.innerHTML = menuIcon.innerHTML === "☰" ? "✕" : "☰";
       }
     }
+
+    const switchLanguage = () => {
+      const currentLang = window.location.pathname.startsWith('/en') ? 'en' : 'es';
+      const newLang = currentLang === 'en' ? 'es' : 'en';
+
+      const newPath = window.location.pathname.replace(/^\/(en|es)/, `/${newLang}`);
+      const newUrl = `${window.location.origin}${newPath}${window.location.search}${window.location.hash}`;
+  
+      window.location.href = newUrl;
+    };
+
   });
 </script>

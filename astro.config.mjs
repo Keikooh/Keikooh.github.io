@@ -6,5 +6,12 @@ import tailwind from "@astrojs/tailwind";
 // https://astro.build/config
 export default defineConfig({
   site: 'https://Keikooh.github.io',
-  integrations: [tailwind()]
+  integrations: [tailwind()],
+  // i18n: {
+  //   defaultLocale: 'en',
+  //   locales: ['es', 'en'],
+  //   routing: {
+  //     prefixDefaultLocale: true,
+  //   }
+  // }
 });
