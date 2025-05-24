@@ -4,7 +4,7 @@ import { toggleMenu } from "../navigation.js";
 import Logo from "../icons/Logo.svg"
 import { getLangFromUrl, useTranslations } from '../i18n/utils'
 
-const lang = getLangFromUrl(Astro.url);
+const lang = "es";
 const t = useTranslations(lang);
 ---
 
@@ -96,9 +96,9 @@ const t = useTranslations(lang);
     }
 
     const toggleButton = () => {
-      container.classList.toggle("flex-row-reverse");
-      english.classList.toggle("opacity-50");
-      spanish.classList.toggle("opacity-50");
+      container?.classList.toggle("flex-row-reverse");
+      english?.classList.toggle("opacity-50");
+      spanish?.classList.toggle("opacity-50");
     }
 
     const onToggleMenu = () => {

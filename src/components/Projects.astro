@@ -1,8 +1,4 @@
 ---
-import ReduxIcon from "../icons/tech/ReduxIcon.astro";
-import React from "../icons/tech/React.astro";
-import Tailwind from "../icons/tech/Tailwind.astro";
-
 // icons
 import Expand from "../icons/Expand.astro";
 import GitHub from "../icons/GitHub.astro";
@@ -11,7 +7,7 @@ import NotColoredButton from "../components/Buttons/NotColoredButton.astro";
 import ColoredButton from "./Buttons/ColoredButton.astro";
 import { getLangFromUrl, useTranslations } from '../i18n/utils'
 
-const lang = getLangFromUrl(Astro.url);
+const lang = "es";
 const t = useTranslations(lang);
 
 const PROJECTS = [

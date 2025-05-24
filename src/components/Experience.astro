@@ -16,7 +16,7 @@ const EXPERIENCE = [
     company: "Axolotl Solutions",
     time: t('experience.time1'),
     location: t('experience.location1'),
-    description: t('experience.description1'),
+    description: t('experience.description1')  as string[],
     technologies: [
         "XAML",
         "SQL Server",
@@ -30,7 +30,7 @@ const EXPERIENCE = [
     company: "HDI Seguros",
     time: t('experience.time2'),
     location: t('experience.location2'),
-    description: t('experience.description2'),
+    description: t('experience.description2') as string[],
     technologies: [
         "React",
         "Sybase",
@@ -60,7 +60,7 @@ const EXPERIENCE = [
         </div>
         <div class="text-white/60 flex flex-col gap-y-1">
           {experience.description.map( (item, index) => (
-            <li key={index}>{item}</li>
+            <li>{item}</li>
           ) )}
         </div>
         <ul class="flex flex-wrap gap-2">

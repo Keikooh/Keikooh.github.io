@@ -5,6 +5,7 @@ export const languages = {
 
 export let defaultLang = 'es';
 
+/** @type {{ [lang: string]: { [key: string]: string } }} */
 export const ui = {
     en: {
         'title': 'Fer Gonzalez | Welcome to my portfolio',
