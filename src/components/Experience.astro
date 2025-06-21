@@ -7,7 +7,7 @@ import Calendar from "../icons/Calendar.astro";
 import Pills from "./Pills.astro"
 import { getLangFromUrl, useTranslations } from '../i18n/utils'
 
-const lang = "es";
+const lang = getLangFromUrl(Astro.url);
 const t = useTranslations(lang);
 
 const EXPERIENCE = [
@@ -33,6 +33,7 @@ const EXPERIENCE = [
     description: t('experience.description2') as string[],
     technologies: [
         "React",
+        "Angular",
         "Sybase",
         "Git",
         "C#",

@@ -7,34 +7,42 @@ import NotColoredButton from "../components/Buttons/NotColoredButton.astro";
 import ColoredButton from "./Buttons/ColoredButton.astro";
 import { getLangFromUrl, useTranslations } from '../i18n/utils'
 
-const lang = "es";
+const lang = getLangFromUrl(Astro.url);
 const t = useTranslations(lang);
 
 const PROJECTS = [
   {
-    title: "Modara E-Commerce",
-    description: t('projects.description1'),
-    image: "./Projects/ecommerce.jpg",
-    tags: ["Redux", "React", "Tailwind", "ASP.NET", "Azure"],
-    repositore: "https://github.com/Keikooh/ShoppingCart",
+    title: "Spotify-Clon",
+    description: t('projects.description4'),
+    image: "./Projects/spotifyClon.jpg",
+    tags: ["React", "TypeScript", "Zustand", "TailwindCSS"],
+    repositore: "https://github.com/Keikooh/Spotify-clon",
     preview: "",
   },
-  {
-    title: "InSight ChatBot",
-    description: t('projects.description2'),
-    image: "./Projects/bot.jpg",
-    tags: ["Python", "Flask", "Boostrap"],
-    repositore:"https://github.com/Keikooh/InSight-ChatBot",
-    preview:"https://fergzm.pythonanywhere.com/"
-  },
-  {
-    title: "TaskFlow Management",
-    description: t('projects.description3'),
-    image: "./Projects/management.jpg",
-    tags: ["JQuery", "HTML5", "CSS3"],
-    repositore: "https://github.com/Keikooh/TaskFlow",
-    preview: "",
-  },
+  // {
+  //   title: "Modara E-Commerce",
+  //   description: t('projects.description1'),
+  //   image: "./Projects/ecommerce.jpg",
+  //   tags: ["Redux", "React", "Tailwind", "ASP.NET", "Azure"],
+  //   repositore: "https://github.com/Keikooh/ShoppingCart",
+  //   preview: "",
+  // },
+  // {
+  //   title: "InSight ChatBot",
+  //   description: t('projects.description2'),
+  //   image: "./Projects/bot.jpg",
+  //   tags: ["Python", "Flask", "Boostrap"],
+  //   repositore:"https://github.com/Keikooh/InSight-ChatBot",
+  //   preview:"https://fergzm.pythonanywhere.com/"
+  // },
+  // {
+  //   title: "TaskFlow Management",
+  //   description: t('projects.description3'),
+  //   image: "./Projects/management.jpg",
+  //   tags: ["JQuery", "HTML5", "CSS3"],
+  //   repositore: "https://github.com/Keikooh/TaskFlow",
+  //   preview: "",
+  // },
 ];
 ---
 

@@ -22,8 +22,7 @@ import Stack from "../icons/Stack.astro";
 import Briefcase from "../icons/Briefcase.astro";
 import { getLangFromUrl, useTranslations } from '../i18n/utils'
 
-// const lang = getLangFromUrl(Astro.url);
-const lang = "es";
+const lang = getLangFromUrl(Astro.url);
 const t = useTranslations(lang);
 ---
 <Layout title={t('title')}>

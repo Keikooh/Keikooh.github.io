@@ -3,7 +3,7 @@ export const languages = {
     es: 'Español',
 };
 
-export let defaultLang = 'es';
+export let defaultLang:'es'|'en' = 'en';
 
 /** @type {{ [lang: string]: { [key: string]: string } }} */
 export const ui = {
@@ -45,6 +45,7 @@ export const ui = {
         'projects.description1': 'E-commerce developed using React for efficient component state management, resulting in a dynamic and intuitive user interface.',                       
         'projects.description2': 'Chatbot developed using Python and the OpenAI API to generate real-time responses. Responsive design',
         'projects.description3': 'Kanban-style task management tool developed using jQuery.',
+        'projects.description4': 'Web application that replicates the Spotify experience using modern technologies, including the official Spotify API. It allows users to search for and play songs, albums, playlists, and more'
     },  
     es: {
         'title': 'Fer Gonzalez | Bienvenido a mi portafolio',
@@ -85,5 +86,6 @@ export const ui = {
         'projects.description1': 'E-commerce desarrollada con React para la gestión eficiente del estado de los componentes, logrando una interfaz dinámica e intuitiva para el usuario.',
         'projects.description2': 'Chatbot desarrollado con Python y la API de OpenAI para generar respuestas en tiempo real. Diseño responsivo.',
         'projects.description3': 'Herramienta tipo tablero Kanban para la gestión de tareas, desarrollada con jQuery.',
+        'projects.description4': 'Aplicación web que replica la experiencia de Spotify utilizando diferentes tecnologías, además de usar la API oficial de Spotify. Permite buscar y reproducir canciones, álbumes, playlists y más.'                        
     }
 }

@@ -4,7 +4,7 @@ import { toggleMenu } from "../navigation.js";
 import Logo from "../icons/Logo.svg"
 import { getLangFromUrl, useTranslations } from '../i18n/utils'
 
-const lang = "es";
+const lang = getLangFromUrl(Astro.url);
 const t = useTranslations(lang);
 ---
 
