@@ -3,7 +3,7 @@ export const languages = {
     es: 'Español',
 };
 
-export let defaultLang:'es'|'en' = 'es';
+export let defaultLang:'es'|'en' = 'en';
 
 /** @type {{ [lang: string]: { [key: string]: string } }} */
 export const ui = {
