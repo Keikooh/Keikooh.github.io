@@ -4,8 +4,11 @@ import { toggleMenu } from "../navigation.js";
 import Logo from "../icons/Logo.svg"
 import { getLangFromUrl, useTranslations } from '../i18n/utils'
 
-const lang = getLangFromUrl(Astro.url);
-const t = useTranslations(lang);
+const { lang, t } = Astro.props;
+const languages = [
+  { code: "es", label: t.languageOptions.es},
+  { code: "en", label: t.languageOptions.en}
+]
 ---
 
 <header
@@ -14,7 +17,7 @@ const t = useTranslations(lang);
   <nav class="flex justify-between items-center py-3 w-[92%] mx-auto">
     <div class="flex items-center">
       <img src='/logo.png' width="50" height="50"/>
-      <a href="" class="font-bold text-xl" set:html={t('nav.title')}></a>
+      <a href="" class="font-bold text-xl" set:html={t.nav.title}></a>
     </div>
     <div
       class="nav-links duration-500 md:static absolute md:bg-transparent backdrop-blur backdrop-blur-10 md:shadow-none shadow-xl bg-lavanda md:min-h-fit min-h-[50vh] left-[-100%] top-14 md:w-auto w-full flex items-center px-5"
@@ -23,24 +26,24 @@ const t = useTranslations(lang);
         class="flex md:flex-row flex-col md:items-center md:gap-[2vw] gap-6 font-medium "
       >
         <li>
-          <a class="hover:opacity-50 transition px-3 py-1" href="#top">{t('nav.home')}</a>
+          <a class="hover:opacity-50 transition px-3 py-1" href="#top">{t.nav.li.home}</a>
         </li>
         <li>
-          <a class="hover:opacity-50 transition px-3 py-1" href="#tech">{t('nav.tech')}</a>
+          <a class="hover:opacity-50 transition px-3 py-1" href="#tech">{t.nav.li.tech}</a>
         </li>
         <li>
           <a class="hover:opacity-50 transition px-3 py-1" href="#education"
-            >{t('nav.education')}</a
+            >{t.nav.li.education}</a
           >
         </li>
         <li>
           <a class="hover:opacity-50 transition px-3 py-1" href="#experience"
-            >{t('nav.experience')}</a
+            >{t.nav.li.experience}</a
           >
         </li>
         <li>
           <a class="hover:opacity-50 transition px-3 py-1" href="#projects"
-            >{t('nav.projects')}</a
+            >{t.nav.li.projects}</a
           >
         </li>
       </ul>
@@ -48,19 +51,20 @@ const t = useTranslations(lang);
 
     <div class="flex items-center gap-2">
 
-      <!-- 
-      <div class="flex items-center gap-2">
-
-        <span id="english" class="" >en</span>
-
-        <div id="container" class="rounded-full bg-white h-auto w-14 p-0.5 flex">
-          <div id="toggle" class="rounded-full bg-lavanda h-6 w-6 transition"></div>
-        </div>
-
-        <span id="spanish" class="opacity-50">es</span>
-
-      </div>
-      -->
+      
+      <form id="lang-form">
+        <label for="lang-select">{t.languageLabel}</label>
+        <select id="lang-select">
+          {
+            languages.map((langOption) => (
+              <option value={langOption.code} selected={langOption.code === lang}>
+                {langOption.label}
+              </option>
+            ))
+          }
+        </select>
+      </form>
+     
       
       <span id="menuIcon" class="size-6 cursor-pointer md:hidden">☰</span>
     </div>
@@ -75,30 +79,11 @@ const t = useTranslations(lang);
     const menuIcon = document.getElementById("menuIcon");
     const navLinks = document.querySelector(".nav-links");
 
-    // toggle
-    const toggle = document.getElementById("toggle");
-    const container = document.getElementById("container");
-    const english = document.getElementById("english");
-    const spanish = document.getElementById("spanish");
-
 
     if (menuIcon) {
       menuIcon.addEventListener("click", () => {
         onToggleMenu();
       });
-    }
-
-    if (container) {
-      container.addEventListener("click", () => {
-        toggleButton();
-        switchLanguage();
-      });
-    }
-
-    const toggleButton = () => {
-      container?.classList.toggle("flex-row-reverse");
-      english?.classList.toggle("opacity-50");
-      spanish?.classList.toggle("opacity-50");
     }
 
     const onToggleMenu = () => {
@@ -109,15 +94,15 @@ const t = useTranslations(lang);
       }
     }
 
-    const switchLanguage = () => {
-      const currentLang = window.location.pathname.startsWith('/en') ? 'en' : 'es';
-      const newLang = currentLang === 'en' ? 'es' : 'en';
+    // Switch language logic
+    const select = document.getElementById("lang-select") as HTMLSelectElement | null;
 
-      const newPath = window.location.pathname.replace(/^\/(en|es)/, `/${newLang}`);
-      const newUrl = `${window.location.origin}${newPath}${window.location.search}${window.location.hash}`;
-  
-      window.location.href = newUrl;
-    };
+    select?.addEventListener("change", ({ target }) => {
+      const selectedLang = (target as HTMLSelectElement).value;
+      const newPath = window.location.pathname.replace(/^\/(es|en)/,`${selectedLang}`)
+    
+      window.location.pathname = newPath;
+    });
 
   });
 </script>

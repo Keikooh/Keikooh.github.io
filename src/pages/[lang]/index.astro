@@ -1,0 +1,112 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import Section from "../../components/Section.astro";
+import Technologies from "../../components/Technologies.astro";
+import Projects from "../../components/Projects.astro";
+import Education from "../../components/Education.astro";
+import Experience from "../../components/Experience.astro";
+import Title from "../../components/Title.astro";
+import ColoredButton from "../../components/Buttons/ColoredButton.astro";
+import Pills from "../../components/Pills.astro";
+
+// Icons
+import GitHub from "../../icons/GitHub.astro";
+import LinkedIn from "../../icons/LinkedIn.astro";
+import Code from "../../icons/Code.astro";
+import Link from "../../icons/Link.astro";
+import Book from "../../icons/Book.astro";
+import Gmail from "../../icons/Gmail.astro";
+import Stack from "../../icons/Stack.astro";
+import Briefcase from "../../icons/Briefcase.astro";
+
+// i18n
+import es from "../../i18n/es";
+import en from "../../i18n/en";
+import { Language } from "../../types/language-type";
+
+export function getStaticPaths() {
+  return [{ params: { lang: "es" } }, { params: { lang: "en" } }];
+}
+
+
+
+const lang = Astro.params.lang as Language ?? "es";
+const translations = { es, en };
+const t = translations[lang];
+---
+
+<Layout lang={lang} t={t}>
+  <main class="px-5">
+    <!-- Presentation -->
+    <Section class="items-center gap-x-10 text-center">
+      <div class="flex flex-col items-center justify-center">
+        <ul
+          class="flex flex-wrap flex-row gap-2 items-center justify-center text-sm mb-8"
+        >
+          <Pills link="">
+            <Gmail class="size-4" />
+            fergzm05@gmail.com
+          </Pills>
+          <Pills
+            link="https://www.linkedin.com/in/fernanda-gonz%C3%A1lez-mu%C3%B1oz-37084b199/"
+          >
+            <LinkedIn class="size-4" />
+            LinkedIn
+          </Pills>
+          <Pills link="https://github.com/Keikooh">
+            <GitHub class="size-4" />
+            GitHub
+          </Pills>
+        </ul>
+        <h1
+          set:html={t.home.title}
+          class="lg:text-6xl text-5xl font-medium flex flex-col mb-8 bg-gradient-to-b from-white to-lavanda-light text-transparent bg-clip-text"
+        />
+        <p class="text-white/40 font-regular mb-8 lg:text-xl text-md">
+          {t.home.description}
+        </p>
+
+        <ColoredButton link="./MyCV.pdf">
+          <span>{t.home['resume-button']}</span>
+          <Link class="size-5" />
+        </ColoredButton>
+      </div>
+    </Section>
+
+    <!-- Tech Stack -->
+    <Section id="tech" class="pt-36">
+      <Title>
+        <span class="text-3xl">{t.sections.tech}</span>
+        <Stack class="size-7 ms-3" />
+      </Title>
+      <Technologies />
+    </Section>
+
+    <!-- Education -->
+    <Section id="education" class="pt-36">
+      <Title>
+        <span class="text-3xl">{t.sections.education}</span>
+        <Book class="size-7 ms-3" />
+      </Title>
+      <Education t={t}/>
+    </Section>
+
+    <!-- Experience -->
+    <Section id="experience" class="pt-36">
+      <Title>
+        <span class="text-3xl">{t.sections.experience}</span>
+        <Briefcase class="size-7 ms-3" />
+      </Title>
+      <Experience t={t}/>
+    </Section>
+
+    <!-- Projects -->
+    <Section id="projects" class="pt-36">
+      <Title>
+        <span class="text-3xl">{t.sections.projects}</span>
+        <Code class="size-7 ms-3" />
+      </Title>
+      <Projects lang={lang} t={t}/>
+    </Section>
+  </main>
+</Layout>

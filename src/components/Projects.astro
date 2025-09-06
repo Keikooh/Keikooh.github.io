@@ -5,44 +5,18 @@ import GitHub from "../icons/GitHub.astro";
 
 import NotColoredButton from "../components/Buttons/NotColoredButton.astro";
 import ColoredButton from "./Buttons/ColoredButton.astro";
-import { getLangFromUrl, useTranslations } from '../i18n/utils'
 
-const lang = getLangFromUrl(Astro.url);
-const t = useTranslations(lang);
+const { t } = Astro.props;
 
 const PROJECTS = [
   {
     title: "Spotify-Clon",
-    description: t('projects.description4'),
+    description: t.projects[0].description,
     image: "./Projects/spotifyClon.jpg",
     tags: ["React", "TypeScript", "Zustand", "TailwindCSS"],
     repositore: "https://github.com/Keikooh/Spotify-clon",
     preview: "",
   },
-  // {
-  //   title: "Modara E-Commerce",
-  //   description: t('projects.description1'),
-  //   image: "./Projects/ecommerce.jpg",
-  //   tags: ["Redux", "React", "Tailwind", "ASP.NET", "Azure"],
-  //   repositore: "https://github.com/Keikooh/ShoppingCart",
-  //   preview: "",
-  // },
-  // {
-  //   title: "InSight ChatBot",
-  //   description: t('projects.description2'),
-  //   image: "./Projects/bot.jpg",
-  //   tags: ["Python", "Flask", "Boostrap"],
-  //   repositore:"https://github.com/Keikooh/InSight-ChatBot",
-  //   preview:"https://fergzm.pythonanywhere.com/"
-  // },
-  // {
-  //   title: "TaskFlow Management",
-  //   description: t('projects.description3'),
-  //   image: "./Projects/management.jpg",
-  //   tags: ["JQuery", "HTML5", "CSS3"],
-  //   repositore: "https://github.com/Keikooh/TaskFlow",
-  //   preview: "",
-  // },
 ];
 ---
 
@@ -73,7 +47,7 @@ const PROJECTS = [
               class="w-[45%]"
               link={repositore}
             >
-              <span class="text-md">Code</span>
+              <span class="text-md">{t.buttons.code}</span>
               <GitHub class="size-4" />
             </ColoredButton>
             <NotColoredButton 
@@ -81,7 +55,7 @@ const PROJECTS = [
               link={preview}
               disabled={true}
             >
-              <span class="text-md">Preview</span>
+              <span class="text-md">{t.buttons.preview}</span>
               <Expand class="size-4" />
             </NotColoredButton>
           </div>

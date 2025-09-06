@@ -2,28 +2,21 @@
 // Import icons
 import Location from "../icons/Location.astro";
 import Certificate from "../icons/Certificate.astro";
-import Arrow from "../icons/Arrow.astro";
 import Calendar from "../icons/Calendar.astro";
-import { getLangFromUrl, useTranslations } from '../i18n/utils'
 
-const lang = getLangFromUrl(Astro.url);
-const t = useTranslations(lang);
+const { t } = Astro.props;
 
 const EDUCATION = [
   {
-    type: t('education.type1'),
-    area: t('education.area1'),
-    time: t('education.time1'),
-    school: "Tecnológico Superior de Jalisco",
-    description: t('education.description1'),
+    title: t.education[0].title,
+    institution: t.education[0].institution,
+    year: "2024",
     icon: Location,
   },
   {
-    type: t('education.type2'),
-    area: "",
-    time: "2024",
-    school: "DevTalles",
-    description: t('education.description2'),
+    title: t.education[1].title,
+    institution: t.education[1].institution,
+    year: "2025",
     icon: Certificate,
   },
 ];
@@ -34,18 +27,18 @@ const EDUCATION = [
     EDUCATION.map((education) => (
       <section class="flex flex-col gap-y-3 ">
         <h1 class="font-semibold text-xl">
-          <span>{education.type}</span>
+          <span>{education.title}</span>
           <span class="text-lavanda">
-            {education.area} {education.school}
+            {education.institution}
           </span>
         </h1>
         <div class="flex items-center gap-x-2 text-white/30 font-medium">
           <Calendar class="size-4" />
-          {education.time}
+          {education.year}
         </div>
-        <span class="text-white/60 flex flex-row items-center">
+        {/* <span class="text-white/60 flex flex-row items-center">
           {education.description}
-        </span>
+        </span> */}
       </section>
     ))
   }

@@ -1,22 +1,17 @@
 ---
 // Import icons
-import Location from "../icons/Location.astro";
-import Certificate from "../icons/Certificate.astro";
-import Arrow from "../icons/Arrow.astro";
 import Calendar from "../icons/Calendar.astro";
 import Pills from "./Pills.astro"
-import { getLangFromUrl, useTranslations } from '../i18n/utils'
 
-const lang = getLangFromUrl(Astro.url);
-const t = useTranslations(lang);
+const { t } = Astro.props;
 
 const EXPERIENCE = [
   {
-    position: t('experience.position1'),
-    company: "Axolotl Solutions",
-    time: t('experience.time1'),
-    location: t('experience.location1'),
-    description: t('experience.description1')  as string[],
+    position: t.experience[0].position,
+    company: "HDI SEGUROS",
+    time: t.experience[0].time,
+    location: t.experience[0].location,
+    description: t.experience[0].description  as string[],
     technologies: [
         "XAML",
         "SQL Server",
@@ -26,11 +21,11 @@ const EXPERIENCE = [
     ]  
   },
   {
-    position: t('experience.position2'),
-    company: "HDI Seguros",
-    time: t('experience.time2'),
-    location: t('experience.location2'),
-    description: t('experience.description2') as string[],
+    position: t.experience[1].position,
+    company: "Axolotl Solutions",
+    time: t.experience[1].time,
+    location: t.experience[1].location,
+    description: t.experience[1].description as string[],
     technologies: [
         "React",
         "Angular",
