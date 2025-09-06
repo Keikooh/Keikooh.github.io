@@ -1,9 +1,4 @@
 ---
-import Menu from "../icons/Menu.astro";
-import { toggleMenu } from "../navigation.js";
-import Logo from "../icons/Logo.svg"
-import { getLangFromUrl, useTranslations } from '../i18n/utils'
-
 const { lang, t } = Astro.props;
 const languages = [
   { code: "es", label: t.languageOptions.es},
