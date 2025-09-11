@@ -9,7 +9,7 @@ export default {
     description:
       "Desarrolladora Full-stack con más de un año de experiencia profesional. Apasionada por crear soluciones creativas, funcionales y eficientes.🚀",
     "resume-button": "Descargar CV",
-    "resume-link": "./resumes/CV_Maria Fernanda Gonzalez Muñoz_es.pdf",
+    "resume-link": "/resumes/CV_Maria Fernanda Gonzalez Muñoz_es.pdf",
   },
   nav: {
     title: "Mi portafolio",

@@ -10,7 +10,7 @@ export default {
     description:
       "Full-stack Developer with 1+ years of professional experience. Passionate about building creative, functional and efficient solutions.🚀",
     "resume-button": "Resume",
-    "resume-link": "./resumes/CV_Maria Fernanda Gonzalez Munoz_en.pdf",
+    "resume-link": "/resumes/CV_Maria Fernanda Gonzalez Munoz_en.pdf",
   },
   nav: {
     title: "My portfolio",
