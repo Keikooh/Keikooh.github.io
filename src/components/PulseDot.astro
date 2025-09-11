@@ -1,0 +1,16 @@
+---
+const { isPublished } = Astro.props
+
+const text = isPublished ? "Beta" : "In dev"
+const bgDot = isPublished ? "bg-green-500" : "bg-yellow-500"
+const bgPing = isPublished ? "bg-green-200" : "bg-yellow-200"
+const textColor = isPublished ? "text-green-500" : "text-yellow-500"
+---
+<div class="flex gap-x-2 justify-center items-center text-xs">
+    <span class="relative flex h-2 w-2">
+        <span class={`animate-ping absolute inline-flex h-full w-full rounded-full ${bgPing} opacity-75`}></span>
+        <span class={`relative inline-flex rounded-full h-2 w-2 ${bgDot}`}></span>
+    </span> 
+
+    <p class={textColor}>{text}</p>
+</div>

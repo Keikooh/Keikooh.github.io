@@ -1,34 +1,38 @@
 ---
 const { lang, t } = Astro.props;
 const languages = [
-  { code: "es", label: t.languageOptions.es},
-  { code: "en", label: t.languageOptions.en}
-]
+  { code: "es", label: t.languageOptions.es },
+  { code: "en", label: t.languageOptions.en },
+];
 ---
 
 <header
   class="fixed z-10 top-0 left-0 right-0 backdrop-blur border-white/10 border-b-2"
 >
   <nav class="flex justify-between items-center py-3 w-[92%] mx-auto">
-    <div class="flex items-center">
-      <img src='/logo.png' width="50" height="50"/>
-      <a href="" class="font-bold text-xl" set:html={t.nav.title}></a>
+    <div class="flex items-center gap-x-4">
+      <img src="/logo.jpg" class="rounded-full" width="40" height="40" />
+      <a href="" class="text-indigo-100 font-bold text-xl">{t.nav.title}</a>
     </div>
     <div
-      class="nav-links duration-500 md:static absolute md:bg-transparent backdrop-blur backdrop-blur-10 md:shadow-none shadow-xl bg-lavanda md:min-h-fit min-h-[50vh] left-[-100%] top-14 md:w-auto w-full flex items-center px-5"
+      class="nav-links duration-500 md:static absolute md:bg-transparent backdrop-blur backdrop-blur-10 md:shadow-none shadow-xl bg-lavanda md:min-h-fit min-h-[50vh] left-[-100%] top-16 md:w-auto w-full flex items-center px-5"
     >
       <ul
-        class="flex md:flex-row flex-col md:items-center md:gap-[2vw] gap-6 font-medium "
+        class="flex text-indigo-100 md:flex-row flex-col md:items-center md:gap-[2vw] gap-6 font-medium"
       >
         <li>
-          <a class="hover:opacity-50 transition px-3 py-1" href="#top">{t.nav.li.home}</a>
+          <a class="hover:opacity-50 transition px-3 py-1" href="#top"
+            >{t.nav.li.home}</a
+          >
         </li>
         <li>
-          <a class="hover:opacity-50 transition px-3 py-1" href="#tech">{t.nav.li.tech}</a>
+          <a class="hover:opacity-50 transition px-3 py-1" href="#tech"
+            >{t.nav.li.tech}</a
+          >
         </li>
         <li>
-          <a class="hover:opacity-50 transition px-3 py-1" href="#education"
-            >{t.nav.li.education}</a
+          <a class="hover:opacity-50 transition px-3 py-1" href="#certifications"
+            >{t.nav.li.certifications}</a
           >
         </li>
         <li>
@@ -45,35 +49,31 @@ const languages = [
     </div>
 
     <div class="flex items-center gap-2">
-
-      
       <form id="lang-form">
-        <label for="lang-select">{t.languageLabel}</label>
-        <select id="lang-select">
+        <select id="lang-select" class="rounded-md px-3 py-1">
           {
             languages.map((langOption) => (
-              <option value={langOption.code} selected={langOption.code === lang}>
+              <option
+                value={langOption.code}
+                selected={langOption.code === lang}
+              >
                 {langOption.label}
               </option>
             ))
           }
         </select>
       </form>
-     
-      
+
       <span id="menuIcon" class="size-6 cursor-pointer md:hidden">☰</span>
     </div>
   </nav>
-</header> 
-
-
+</header>
 
 <script>
   document.addEventListener("DOMContentLoaded", () => {
     // Menu
     const menuIcon = document.getElementById("menuIcon");
     const navLinks = document.querySelector(".nav-links");
-
 
     if (menuIcon) {
       menuIcon.addEventListener("click", () => {
@@ -87,17 +87,21 @@ const languages = [
       if (menuIcon) {
         menuIcon.innerHTML = menuIcon.innerHTML === "☰" ? "✕" : "☰";
       }
-    }
+    };
 
     // Switch language logic
-    const select = document.getElementById("lang-select") as HTMLSelectElement | null;
+    const select = document.getElementById(
+      "lang-select"
+    ) as HTMLSelectElement | null;
 
     select?.addEventListener("change", ({ target }) => {
       const selectedLang = (target as HTMLSelectElement).value;
-      const newPath = window.location.pathname.replace(/^\/(es|en)/,`${selectedLang}`)
-    
+      const newPath = window.location.pathname.replace(
+        /^\/(es|en)/,
+        `${selectedLang}`
+      );
+
       window.location.pathname = newPath;
     });
-
   });
 </script>

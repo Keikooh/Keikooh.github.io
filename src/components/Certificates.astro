@@ -1,0 +1,61 @@
+---
+import Calendar from "../icons/Calendar.astro";
+import Verified from "../icons/Verified.astro";
+
+const { t } = Astro.props;
+
+const certificates = [
+  {
+    title: t.certifications[0].title,
+    issuer: "Trinity College London",
+    date: t.certifications[0].date,
+    credentialUrl: "",
+    coverImage: "/certifications/tcl_logo.jpg"
+  },
+  {
+    title: t.certifications[1].title,
+    issuer: "Udemy",
+    date: t.certifications[1].date,
+    credentialUrl: "https://www.udemy.com/certificate/UC-281c3f35-3a9c-4259-bac9-ca0dc99b36ff/",
+    coverImage: "/certifications/udemy_logo.jpg"
+  },
+  {
+    title: t.certifications[2].title,
+    issuer: "Udemy",
+    date: t.certifications[2].date,
+    credentialUrl: "https://www.udemy.com/certificate/UC-63f1224b-8415-410d-b58b-cf8639efc448/",
+    coverImage: "/certifications/udemy_logo.jpg"
+  },
+];
+---
+
+<div class="w-full grid grid-cols-1 md:grid-cols-2 gap-3">
+  {
+    certificates.map(({ title, issuer, date, credentialUrl, coverImage }) => (
+      <a href={credentialUrl} class="relative group cursor-pointer border-2 border-transparent hover:border-lavanda/30 hover:bg-white/15 p-5 rounded-md bg-white/10 text-indigo-100 transition erase-in duration-200">
+        <div
+          class="absolute bg-purple-400 m-10 inset-0 blur-2xl opacity-0 group-hover:opacity-30 transition duration-200 erase-in-out"
+        />
+        <Verified class="text-lavanda absolute -right-2 -top-2"/>
+        <div class="relative">
+          <div class="flex gap-x-2">
+            <img src={coverImage} class="size-12 rounded-sm" alt="not-found">
+            <h5
+            class="text-md font-semibold text-lavanda line-clamp-2 mb-4"
+            title={title}
+          >
+            {title}
+          </h5>
+          </div>
+          <div class="flex gap-x-2 items-center text-sm">
+            <p class="rounded-full bg-lavanda px-3 py-1">{issuer}</p>
+            <div class="opacity-40 flex justify-center gap-x-2">
+              <Calendar class="size-5" />
+              <span>{date}</span>
+            </div>
+          </div>
+        </div>
+      </a>
+    ))
+  }
+</div>

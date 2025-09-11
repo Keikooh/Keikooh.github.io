@@ -1,5 +1,23 @@
-<footer class="bg-white/5 border-white/5 border-2 flex items-center justify-center py-5">
-    <h3 class="text-white/70">
-        Made with astro
-    </h3>
+---
+import GitHub from "../icons/GitHub.astro";
+import Gmail from "../icons/Gmail.astro";
+import LinkedIn from "../icons/LinkedIn.astro";
+import Pills from "./Pills.astro";
+---
+
+<footer
+  class="bg-white/5 border-white/5 border-2 flex flex-col gap-y-5 items-center justify-center py-10"
+>
+  <ul class="flex gap-x-3">
+    <Pills
+      link="https://www.linkedin.com/in/fernanda-gonzalez-mu%C3%B1oz-37084b199/"
+    >
+      <LinkedIn class="size-5" />
+    </Pills>
+    <Pills link="https://github.com/Keikooh">
+      <GitHub class="size-5" />
+    </Pills>
+  </ul>
+
+  <h4 class="text-indigo-100/40 text-sm">Made with Astro</h4>
 </footer>

@@ -1,76 +1,99 @@
 export default {
-    languageLabel: "Language",
-    languageOptions: {
-        es: "Spanish",
-        en: "English"
+  languageOptions: {
+    es: " Spanish",
+    en: "English",
+  },
+  "page-title": "Fer Gonzalez | Welcome to my portfolio",
+  home: {
+    title:
+      "<span>Hi! I'm Fernanda</span><span class='text-shadow-lg text-shadow-indigo-300'>Full-stack Developer</span>",
+    description:
+      "Full-stack Developer with 1+ years of professional experience. Passionate about building creative, functional and efficient solutions.🚀",
+    "resume-button": "Resume",
+    "resume-link": "./resumes/CV_Maria Fernanda Gonzalez Munoz_en.pdf",
+  },
+  nav: {
+    title: "My portfolio",
+    li: {
+      home: "Home",
+      tech: "Tech",
+      certifications: "Certifications",
+      experience: "Experience",
+      projects: "Projects",
     },
-    "page-title": "Fer Gonzalez | Welcome to my portfolio",
-    home: {
-        title: "<span>Hi! Im Fernanda</span><span >Software developer</span>",
-        description: "Fullstack Developer passionate about building creative, functional and efficient solutions. Always seeking to learn. 🚀",
-        "resume-button": "Resume"
+  },
+  buttons: {
+    code: "Code",
+    preview: "Preview",
+  },
+  sections: {
+    tech: "Tech stack",
+    certifications: "Certifications",
+    experience: "Experience",
+    projects: "Projects",
+  },
+  technologies: {
+    languages: "Languages",
+    os: "Operating Systems",
+    framewLib: "Frameworks and libraries",
+    devOps: "DevOps",
+    dataBases: "Data Bases",
+    tools: "Tools",
+  },
+  certifications: [
+    {
+      title: "ESOL International (Grade 9, CEFR Level B2.3, Merit)",
+      date: "April 2024",
     },
-    nav: {
-        title: "My Port<span class='text-lavanda'>folio</span>",
-        li: {
-            home: "Home",
-            tech: "Tech",
-            education: "Education",
-            experience: "Experience",
-            projects: "Projects"
-        }
+    {
+      title: "Modern JavaScript: A Guide to Mastering the Language",
+      date: "January 2025",
     },
-    buttons: {
-        code: "Code",
-        preview: "Preview"
+    {
+      title: "TypeScript: Your Complete Guide and Handbook",
+      date: "July 2025",
     },
-    sections: {
-        tech: "Tech stack",
-        education: "Education",
-        experience: "Experience",
-        projects: "Projects"
-    },
-    education: [
-        {
-            title: "Bachelor of Engineering (Computer Systems)",
-            institution: "Tecnologico Superior de Jalisco (TSJ)",
-        },
-        {
-            title: "Modern JavaScript: A guide to mastering the language",
-            institution: "Udemy",
-        }
+  ],
+  experience: {
+    activities: "Activities",
+    items: [
+      {
+        position: "Full Stack Developer",
+        company: "HDI SEGUROS",
+        time: "August 2024 - June 2025",
+        location: "Guanajuato, Mexico",
+        description: [
+          "Development of frontend modules and components.",
+          "Integration and maintenance of REST APIs.",
+          "Creation and testing of stored procedures.",
+          "Design and optimization of workflows.",
+          "Migration of containers to Kubernetes.",
+          "Collaboration with multidisciplinary teams.",
+        ],
+      },
+      {
+        position: "Software Developer Intern",
+        company: "Axolots Solutions",
+        time: "April 2024 - August 2024",
+        location: "Guanajuato, Mexico",
+        description: [
+          "Project requirements gathering.",
+          "Design of wireframes and system diagrams.",
+          "Backend and API development.",
+          "Database creation and stored procedures.",
+          "Mobile frontend development and application logic.",
+          "Progress documentation in a technical report.",
+        ],
+      },
     ],
-    experience: [
-        {
-            position: "Fullstack Developer",
-            company: "HDI SEGUROS",
-            time: "August 2024 - June 2025",
-            location: "Guanajuato, Mexico",
-            description: [
-                "Developed new modules (React, Angular) creating responsive components and managing REST API integration, fixing errors and making improvements.",
-                "Modified and extended existing REST APIs, adding new endpoints and fixing existing ones according to frontend requirements.",
-                "Created and tested stored procedures associated with endpoints to ensure their correct operation.",
-                "Designed a new receipt liquidation workflow for a legacy treasury system, reducing process time by 70%.",
-                "Optimized the container migration process to Kubernetes, adding improvements to an existing C# application that automates the deployment process."
-            ]
-        },
-        {
-            position: "Software Developer Intern",
-            company: "Axolots Solutions",
-            time: "April 2024 - August 2024",
-            location: "Guanajuato, Mexico",
-            description: [
-                "Developed a mobile application for tow truck requests, aiming to reduce waiting times by automating service assignment through in-app logic.",
-                "Learned and implemented Google Maps API functionalities (maps, geolocation, routes) to support the application logic."
-            ]
-        }
-    ], 
-    projects: [
-        {
-            description: "Web application that replicates the Spotify experience using modern technologies, including the official Spotify API. It allows users to search for and play songs, albums, playlists, and more."
-        },
-        {
-            description: ""
-        },
-    ]
-}
+  },
+  projects: [
+    {
+      description: "Welcome to my digital playground! This space is a reflection of my creativity and passion for web development. Built with astro and styled using Tailwind.",
+    },
+    {
+      description:
+        "Web application that allows users to search for and play songs, albums, playlists, and more. It uses the official Spotify API.",
+    },
+  ],
+};

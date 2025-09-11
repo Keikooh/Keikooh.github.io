@@ -1,8 +1,9 @@
 ---
-const { class: className, disabled } = Astro.props;
+const { class: className, disabled, title } = Astro.props;
 ---
 
 <a
+  title={title}
   class={ `flex justify-center items-center py-3 px-5 bg-white/5 border-white/5 font-medium rounded-full gap-x-2 border-2 transition ${className} ${ disabled ? `opacity-50` : `hover:bg-white/10 cursor-pointer`}`}
 >
   <slot />

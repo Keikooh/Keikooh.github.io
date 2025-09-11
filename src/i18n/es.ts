@@ -1,74 +1,96 @@
 export default {
-    languageLabel: "Lenguaje",
-    languageOptions: {
-        es: "Español",
-        en: "Inglés"
+  languageOptions: {
+    es: "Español",
+    en: "Inglés",
+  },
+  "page-title": "Fer Gonzalez | Bienvenido a mi portafolio",
+  home: {
+    title: "<span>¡Hola! Soy Fernanda</span><span >Full-stack Developer</span>",
+    description:
+      "Desarrolladora Full-stack con más de un año de experiencia profesional. Apasionada por crear soluciones creativas, funcionales y eficientes.🚀",
+    "resume-button": "Descargar CV",
+    "resume-link": "./resumes/CV_Maria Fernanda Gonzalez Muñoz_es.pdf",
+  },
+  nav: {
+    title: "Mi portafolio",
+    li: {
+      home: "Inicio",
+      tech: "Tecnologías",
+      certifications: "Certificados",
+      experience: "Experiencia",
+      projects: "Proyectos",
     },
-    "page-title": "Fer Gonzalez | Bienvenido a mi portafolio",
-    home: {
-        title: "<span>¡Hola! Soy Fernanda</span><span >Desarrolladora de Software</span>",
-        description: "Desarrolladora de Software apasionada por crear soluciones creativas, funcionales y eficientes. Siempre en constante búsqueda de aprendizaje. 🚀",
-        "resume-button": "Descargar CV"
+  },
+  buttons: {
+    code: "Código",
+    preview: "Vista previa",
+  },
+  sections: {
+    tech: "Stack tecnológico",
+    certifications: "Certificados",
+    experience: "Experiencia",
+    projects: "Proyectos",
+  },
+  technologies: {
+    languages: "Lenguajes",
+    os: "Sistemas operativos",
+    framewLib: "Frameworks y librerías",
+    devOps: "DevOps",
+    dataBases: "Bases de datos",
+    tools: "Herramientas",
+  },
+  certifications: [
+    {
+      title: "Certificado ESOL Internacional Nivel B2.3 (Mérito)",
+      date: "April 2024",
     },
-    nav: {
-        title: "Mi Porta<span class='text-lavanda'>folio</span>",
-        li: {
-            home: "Inicio",
-            tech: "Tecnología",
-            education: "Educación",
-            experience: "Experiencia",
-            projects: "Proyectos"
-        }
+    {
+      title: "JavaScript Moderno: Guía para dominar el lenguaje",
+      date: "Enero 2025",
     },
-    buttons: {
-        code: "Código",
-        preview: "Vista previa"
+    {
+      title: "TypeScript: Tu completa guía y manual de mano",
+      date: "Julio 2025",
     },
-    sections: {
-        tech: "Stack tecnológico",
-        education: "Educación",
-        experience: "Experiencia",
-        projects: "Proyectos"
-    },
-    education: [
-        {
-            title: "Ingeniería en Sistemas Computacionales",
-            institution: "Tecnológico Superior de Jalisco (TSJ)",
-        },
-        {
-            title: "JavaScript Moderno: Guía para dominar el lenguaje",
-            institution: "Udemy",
-        }
+  ],
+  experience: {
+    activities: "Actividades",
+    items: [
+      {
+        position: "Desarrollador Full Stack",
+        time: "Agosto 2024 - Junio 2025",
+        location: "León Gto. México",
+        description: [
+          "Desarrollo de módulos y componentes frontend.",
+          "Integración y mantenimiento de APIs REST.",
+          "Creación y prueba de procedimientos almacenados.",
+          "Diseño y optimización de flujos.",
+          "Migración de contenedores a Kubernetes.",
+          "Colaboración con equipos multidisciplinarios.",
+        ],
+      },
+      {
+        position: "Residente en Desarrollo de Software",
+        time: "Abril 2024 - Agosto 2024",
+        location: "León Gto. México",
+        description: [
+          "Levantamiento de requerimientos del proyecto.",
+          "Diseño de wireframes y diagramas del sistema.",
+          "Desarrollo del backend y APIs.",
+          "Creación de base de datos y procedimientos almacenados.",
+          "Desarrollo del frontend móvil y la lógica de la aplicación.",
+          "Documentación de avances en un informe técnico.",
+        ],
+      },
     ],
-    experience: [
-        {
-            position: "Desarrollador Fullstack",
-            time: "Agosto 2024 - Junio 2025",
-            location: "León Gto. México",
-            description: [
-                "Desarrollé nuevos módulos (React, Angular) creando componentes responsivos y gestioné la integración de APIs REST, corrigiendo errores y realizando mejoras.",
-                "Modifiqué y extendí APIs REST existentes, agregando nuevos endpoints y corrigiendo los existentes según requerimientos del frontend.",
-                "Creé y probé procedimientos almacenados asociados a endpoints para garantizar su correcta operación.",
-                "Diseñé un nuevo flujo para la liquidación de recibos en un sistema de tesorería legacy, reduciendo el tiempo de procesamiento en un 70%.",
-                "Optimicé el proceso de migración de contenedores a Kubernetes, agregando mejoras a una aplicación existente desarrollada en C# que automatiza el proceso de despliegue."
-            ]
-        },
-        {
-            position: "Residente en Desarrollo de Software",
-            time: "Abril 2024 - Agosto 2024",
-            location: "León Gto. México",
-            description: [
-                "Desarrollé una aplicación móvil para solicitar grúas, con el objetivo de reducir los tiempos de espera al automatizar la asignación del servicio mediante lógica en la app.",
-                "Aprendí e implementé funcionalidades de la API de Google Maps (mapas, geolocalización, rutas) para la lógica de la aplicación."
-            ]
-        }
-    ], 
-    projects: [
-        {
-            description: "Aplicación web que replica la experiencia de Spotify utilizando diferentes tecnologías, además de usar la API oficial de Spotify. Permite buscar y reproducir canciones, álbumes, playlists y más."
-        },
-        {
-            description: ""
-        },
-    ]
-}
+  },
+  projects: [
+    {
+      description: "Bienvenido a mi parque digital. Este espacio es un reflejo de mi creatividad y pasión por el desarrollo web. Desarrollado con Astro y estilizado con Tailwind.",
+    },
+    {
+      description:
+        "Aplicación web que permite buscar y reproducir canciones, álbumes, playlists y más. Utiliza la API oficial de Spotify.",
+    },
+  ],
+};

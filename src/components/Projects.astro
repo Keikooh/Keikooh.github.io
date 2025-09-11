@@ -6,24 +6,39 @@ import GitHub from "../icons/GitHub.astro";
 import NotColoredButton from "../components/Buttons/NotColoredButton.astro";
 import ColoredButton from "./Buttons/ColoredButton.astro";
 
+import PulseDot from "./PulseDot.astro"
+
 const { t } = Astro.props;
 
 const PROJECTS = [
   {
-    title: "Spotify-Clon",
+    title: "My Portfolio",
     description: t.projects[0].description,
-    image: "./Projects/spotifyClon.jpg",
-    tags: ["React", "TypeScript", "Zustand", "TailwindCSS"],
+    image: "/Projects/myPortfolio.jpg",
+    tags: ["Astro", "JavaScript", "Tailwind"],
     repositore: "https://github.com/Keikooh/Spotify-clon",
     preview: "",
+    isPublished: true,
+  },
+  {
+    title: "Spotify-Clon",
+    description: t.projects[1].description,
+    image: "/Projects/spotifyClon.jpg",
+    tags: ["React", "TypeScript", "Zustand", "Tailwind"],
+    repositore: "https://github.com/Keikooh/Spotify-clon",
+    preview: "",
+    isPublished: false,
   },
 ];
 ---
 
 <div class="flex justify-between flex-wrap">
   {
-    PROJECTS.map(({ title, description, image, tags, repositore, preview}) => (
-      <div class="flex flex-col border-2 border-white/5 bg-white/5 rounded-xl lg:w-[48%] mb-7">
+    PROJECTS.map(({ title, description, image, tags, repositore, preview, isPublished}) => (
+      <div class="flex flex-col relative group border-2 border-transparent bg-white/5 rounded-xl lg:w-[48%] mb-7 hover:border-lavanda/30 hover:bg-indigo-200/10 transition erase-in duration-200">
+        <div
+          class="absolute bg-purple-400 m-32 inset-0 blur-2xl opacity-0 group-hover:opacity-20 transition duration-200 erase-in-out"
+        />
         <img
           src={image}
           alt=""
@@ -32,30 +47,34 @@ const PROJECTS = [
 
         <section class="flex flex-wrap p-5 h-full content-between">
           <div class="flex flex-col justify-between items-center gap-y-4">
-            <h3 class="text-xl font-semibold">{title}</h3>
-            <div class="flex flex-wrap justify-center items-center gap-2">
+            <div class="flex w-full gap-x-2 items-center">
+              <h3 class="text-xl font-semibold">{title}</h3>
+              <PulseDot isPublished={isPublished}/>
+            </div>
+            <div class="flex flex-wrap w-full items-center gap-2">
               {tags.map((tag) => (
                 <span class=" text-xs text-white/60 rounded-2xl py-1 px-2 bg-white/10">
                   {tag}
                 </span>
               ))}
             </div>
-            <p class="text-sm text-white/60 text-center">{description}</p>
+            <p class="text-sm text-white/60">{description}</p>
           </div>
-          <div class=" flex flex-row justify-between w-full mt-7">
+          <div class=" flex flex-row justify-between w-[50%] mt-7">
+            
             <ColoredButton
               class="w-[45%]"
               link={repositore}
+              title={t.buttons.code}
             >
-              <span class="text-md">{t.buttons.code}</span>
               <GitHub class="size-4" />
             </ColoredButton>
-            <NotColoredButton 
+            <NotColoredButton
               class="w-[45%]"
-              link={preview}
+              link={repositore}
+              title={t.buttons.preview}
               disabled={true}
             >
-              <span class="text-md">{t.buttons.preview}</span>
               <Expand class="size-4" />
             </NotColoredButton>
           </div>
